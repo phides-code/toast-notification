@@ -2,26 +2,19 @@ import styled from 'styled-components';
 import ToastCard from './ToastCard';
 import { useContext } from 'react';
 import { ToastsContext } from './ToastContext';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { AnimatePresence } from 'framer-motion';
 
 const ToastArea = () => {
     const { toasts } = useContext(ToastsContext);
 
     return (
         <Wrapper>
-            <TransitionGroup className='toast-list'>
+            <AnimatePresence>
                 {/* show only the last 4 toasts, if more than 4 */}
                 {toasts.slice(Math.max(toasts.length - 4, 0)).map((toast) => (
-                    <CSSTransition
-                        key={toast.id}
-                        timeout={700}
-                        classNames='item'
-                        nodeRef={toast.nodeRef}
-                    >
-                        <ToastCard toast={toast} ref={toast.nodeRef} />
-                    </CSSTransition>
+                    <ToastCard key={toast.id} toast={toast} />
                 ))}
-            </TransitionGroup>
+            </AnimatePresence>
         </Wrapper>
     );
 };

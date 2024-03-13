@@ -9,22 +9,3 @@
 body {
     margin: 0;
 }
-
-.item-exit-active {
-    transform: translateY(-500%);
-    transition: transform 700ms ease-out;
-}
-
-.item-appear.item-appear-active {
-    transform: translateY(0%);
-    transition: transform 700ms ease-in;
-}
-
-.item-enter {
-    transform: translateY(-500%);
-}
-
-.item-enter-active {
-    transform: translateY(0%);
-    transition: transform 700ms ease-in;
-}

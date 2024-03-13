@@ -2,7 +2,6 @@ export interface ToastNotificationMessage {
     id: string;
     message: string;
     notificationType: ToastNotificationType;
-    nodeRef: React.Ref<HTMLDivElement>;
 }
 
 export type ToastNotificationType = 'success' | 'info' | 'warning' | 'error';

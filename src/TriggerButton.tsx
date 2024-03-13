@@ -6,7 +6,7 @@ import {
     SampleMessages,
 } from './types';
 import { v4 as uuidv4 } from 'uuid';
-import { createRef, useContext } from 'react';
+import { useContext } from 'react';
 import { ToastsContext } from './ToastContext';
 
 interface TriggerButtonProps {
@@ -19,9 +19,8 @@ const TriggerButton = ({ notificationType }: TriggerButtonProps) => {
     const handleClick = () => {
         const message = SampleMessages[notificationType];
         const id = uuidv4();
-        const nodeRef = createRef<HTMLDivElement>();
         setToasts((currentToasts: ToastNotificationMessage[]) =>
-            currentToasts.concat({ id, message, notificationType, nodeRef })
+            currentToasts.concat({ id, message, notificationType })
         );
 
         // Remove the item after 3 seconds
