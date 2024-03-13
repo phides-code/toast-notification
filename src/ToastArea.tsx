@@ -20,6 +20,8 @@ const ToastArea = () => {
 };
 
 const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column-reverse;
     position: fixed;
     top: 1rem;
     right: 1rem;

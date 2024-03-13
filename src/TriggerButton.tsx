@@ -28,7 +28,7 @@ const TriggerButton = ({ notificationType }: TriggerButtonProps) => {
             setToasts((currentToasts: ToastNotificationMessage[]) =>
                 currentToasts.filter((toast) => toast.id !== id)
             );
-        }, 3000);
+        }, 4000);
     };
 
     return (
