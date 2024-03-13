@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Card from './Card';
+import ToastArea from './ToastArea';
+import { ToastsProvider } from './ToastContext';
 
 const App = () => {
     const [isMobile, setisMobile] = useState<boolean>(false);
@@ -27,17 +29,22 @@ const App = () => {
 
     return (
         <Wrapper>
-            <Card isMobile={isMobile} />
+            <ToastsProvider>
+                <ToastArea />
+                <Card isMobile={isMobile} />
+            </ToastsProvider>
         </Wrapper>
     );
 };
 
 const Wrapper = styled.div`
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     width: 100vw;
+    background-color: lightgrey;
 `;
 
 export default App;

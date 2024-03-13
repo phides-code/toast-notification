@@ -1,13 +1,28 @@
 import styled from 'styled-components';
+import { ToastNotification, ToastNotificationType } from './types';
+import TriggerButton from './TriggerButton';
 
 interface CardProps {
     isMobile: boolean;
 }
 
 const Card = ({ isMobile }: CardProps) => {
+    const notificationTypes: ToastNotificationType[] = Object.keys(
+        ToastNotification
+    ) as ToastNotificationType[];
+
     const mobile = isMobile.toString();
 
-    return <Wrapper $mobile={mobile}>Hello world</Wrapper>;
+    return (
+        <Wrapper $mobile={mobile}>
+            {notificationTypes.map((notificationType) => (
+                <TriggerButton
+                    notificationType={notificationType}
+                    key={notificationType}
+                />
+            ))}
+        </Wrapper>
+    );
 };
 
 interface StyledComponentProps {
@@ -17,7 +32,9 @@ interface StyledComponentProps {
 const Wrapper = styled.div<StyledComponentProps>`
     display: flex;
     flex-direction: column;
-    border: 1px solid red;
+    background-color: white;
+    width: 100%;
+    max-width: 20rem;
 
     margin: ${(props) => (props.$mobile === 'true' ? '0 0.5rem' : '0 5rem')};
     padding: ${(props) =>
