@@ -1,3 +1,3 @@
 # toast-notification
 
-Coding challenge to display concurrent toast notifications with smooth transition effects.
+Coding challenge to display timing out toast notifications concurrently with hover-to-pause effect and smooth transition effects.
