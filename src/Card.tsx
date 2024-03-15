@@ -35,6 +35,8 @@ const Wrapper = styled.div<StyledComponentProps>`
     background-color: white;
     width: 100%;
     max-width: 20rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px 0px #00000040;
 
     margin: ${(props) => (props.$mobile === 'true' ? '0 0.5rem' : '0 5rem')};
     padding: ${(props) =>
