@@ -17,18 +17,17 @@ const TriggerButton = ({ notificationType }: TriggerButtonProps) => {
     const { setToasts } = useContext(ToastsContext);
 
     const handleClick = () => {
-        const message = SampleMessages[notificationType];
         const id = uuidv4();
-        setToasts((currentToasts: ToastNotificationMessage[]) =>
-            currentToasts.concat({ id, message, notificationType })
-        );
 
-        // Remove the item after 3 seconds
-        setTimeout(() => {
-            setToasts((currentToasts: ToastNotificationMessage[]) =>
-                currentToasts.filter((toast) => toast.id !== id)
-            );
-        }, 4000);
+        const newToast: ToastNotificationMessage = {
+            message: SampleMessages[notificationType],
+            id,
+            notificationType,
+        };
+
+        setToasts((currentToasts: ToastNotificationMessage[]) =>
+            currentToasts.concat(newToast)
+        );
     };
 
     return (
